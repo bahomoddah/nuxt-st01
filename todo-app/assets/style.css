@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  background-color: #27292d;
+  background-color: #fff;
+  color: #27292d;
+}
