@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <Navbar/>
     <main>
       <slot />
     </main>
@@ -8,7 +8,12 @@
 </template>
 <script>
 export default defineComponent({
-    setup() {},
+    setup() {
+      
+// const route = useRoute();
+// const inlogin = computed(() => route.path.includes("login"));
+// return { inlogin }
+    },
     created() {}
 });
 </script>

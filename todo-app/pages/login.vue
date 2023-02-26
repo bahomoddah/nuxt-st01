@@ -64,25 +64,27 @@ const form = reactive({
   password: "",
 });
 async function onSubmit() {
-  const user = users.value.find(
+  const user = await checkLoginData();
+  if (user) {
+    const auth = useAuth();
+    auth.value.profile = { ...user, ...form };
+    localStorage.setItem("USER", JSON.stringify({ ...user, ...form }));
+    navigateTo("/");
+  } else {
+    msg.value = "Invalid Password";
+    setTimeout(() => {
+      msg.value = "";
+    }, 3000);
+  }
+}
+function checkLoginData() {
+  return users.value.find(
     (user) =>
       user.username === form.username &&
       ((user.username === "zucker" && form.password === "123456") ||
         (user.username === "felon" && form.password === "123123") ||
         (user.username === "robon" && form.password === "secret"))
   );
-  console.log("user", user);
-  if (user) {
-    localStorage.setItem("USER", JSON.stringify({ ...user, ...form }));
-    const auth = useAuth();
-    auth.value.isAuthenticated = true;
-    navigateTo("/");
-  } else {
-    msg.value = "Invalid Password";
-    setTimeout(() => {
-      msg.value = "";
-    }, 2500);
-  }
 }
 useHead({
   title: "ToDo List - Login",
