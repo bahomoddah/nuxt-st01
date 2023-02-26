@@ -106,54 +106,24 @@ useHead({
 }
 
 /* Form Style */
-form {
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
 form input,
 form button,
 form select {
-  height: 48px;
-  box-shadow: none;
-  outline: none;
-  padding-left: 12px;
-  padding-right: 12px;
-  border-radius: 6px;
-  font-size: 18px;
   margin-top: 8px;
   margin-bottom: 20px;
 }
-form input {
-  background-color: transparent;
-  border: 1px solid #0e2431;
-  color: inherit;
-}
 form button {
-  cursor: pointer;
   background-color: #4070f4;
   border: 1px solid #4070f4;
   color: #1f2023;
-  font-weight: bold;
-  outline: none;
   margin: auto;
-  border-radius: 6px;
   padding: 10px 60px;
-}
-form label {
-  font-size: 14px;
-  font-weight: bold;
 }
 .error {
   color: #dc4c64;
   text-align: center;
 }
+/* Account List */
 .accounts div {
   display: flex;
   flex-wrap: wrap;

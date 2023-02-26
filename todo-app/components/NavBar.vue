@@ -24,34 +24,11 @@ const route = useRoute();
 const inlogin = computed(() => route.path.includes("login"));
 function logout() {
   localStorage.removeItem("USER");
-  auth.value.profile = {}
+  auth.value.profile = {};
   navigateTo("/login");
 }
 </script>
 <style scoped>
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #f7f7f7;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
-}
-nav h2 {
-  color: #000;
-}
-.logout {
-  font-size: 14px;
-  padding: 7px 7px;
-  border: none;
-  margin: 0 7px;
-  color: #fff;
-  background-color: #dc4c64;
-  cursor: pointer;
-  font-weight: bold;
-  outline: none;
-  border-radius: 6px;
-}
 .profile {
   display: flex;
   align-items: center;
@@ -64,4 +41,5 @@ nav h2 {
   margin: 0 5px;
   padding: 4px;
 }
+
 </style>
