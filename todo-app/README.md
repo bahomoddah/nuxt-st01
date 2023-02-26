@@ -5,10 +5,10 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Setup
 
-Make sure to install the dependencies:
-pm
 npm install
-
-```
 npm run dev
+
+## Note
+
+Be sure to run server before using the app
 ```
