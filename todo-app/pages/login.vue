@@ -94,15 +94,17 @@ useHead({
 <style scoped>
 .login {
   max-width: 450px;
-  margin: 5% auto 0;
-  padding: 3rem 0;
+  margin: 10% auto 0;
+  padding: 3rem 20px 2rem;
   width: 90%;
+  border: 1px solid #000;
+  border-radius: 12px;
 }
 .login h2 {
   font-size: 1.75rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 /* Form Style */
@@ -138,5 +140,11 @@ form button {
   border-radius: 50%;
   margin: 0 5px;
   padding: 4px;
+}
+
+@media (max-width: 767px) {
+  .login {
+    margin: 15% auto 0;
+  }
 }
 </style>
