@@ -1,12 +1,9 @@
 :root {
-  --background-color: #ebebeb;
-  --background-color: #fafafa;
+  --nav-bg: #f7f7f7;
   --text-color: #27292d;
   --border-color: #0e2431;
   --success-color: #14a44d;
   --error-color: #dc4c64;
-  --title-color: #151a22;
-  --element-size: 4rem;
 }
 * {
   margin: 0;
@@ -93,7 +90,6 @@ nav .logout {
   padding-right: 12px;
   border-radius: 6px;
   font-size: 18px;
-  border: none;
 }
 form input {
   background-color: transparent;
@@ -102,8 +98,8 @@ form input {
 }
 form button {
   cursor: pointer;
-  background-color: #1f2023;
-  border: 1px solid #1f2023;
+  background-color: var(--text-color);
+  border: 1px solid var(--text-color);
   color: #fff;
   font-weight: bold;
   outline: none;
@@ -113,14 +109,18 @@ form label {
   font-size: 14px;
   font-weight: bold;
 }
-/* Nav Style */
+.error-msg {
+  color: var(--error-color);
+  text-align: center;
+}
 
+/* Nav Style */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #f7f7f7;
+  background-color: var(--nav-bg);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
 }
 nav h2 {
@@ -133,6 +133,7 @@ nav .logout {
   background-color: var(--error-color);
   color: #fff;
   height: 32px;
+  border: none;
 }
 
 /* Make nav fixed */
@@ -142,7 +143,7 @@ nav {
   top: 0;
 }
 main {
-  margin-top: 80px;
+  margin-top: 74px;
 }
 @media (max-width: 767px) {
   nav {

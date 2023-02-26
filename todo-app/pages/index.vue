@@ -1,5 +1,5 @@
 <template>
-  <div class="todo" v-if="user.id">
+  <div class="todo">
     <h1>ToDo List App</h1>
     <form @submit.prevent="addNewTask()">
       <div>
@@ -17,7 +17,7 @@
             <button @click="markAsCompleted(todo.id)">
               {{ todo.completed ? "UnDo" : "Done" }}
             </button>
-            <button @click="removeTodo(todo.id)" class="delete">Delete</button>
+            <button @click="deleteTodo(todo.id)" class="delete">Delete</button>
           </div>
         </li>
       </ul>
@@ -32,12 +32,17 @@ definePageMeta({
   middleware: ["auth"],
 });
 
-const auth = useAuth();
-const user = computed(() => auth.value.profile);
-!user.value.id ? navigateTo("/login") : "";
+const {
+  todos,
+  newTask,
+  fetchTodoList,
+  addNewTask,
+  markAsCompleted,
+  deleteTodo,
+} = useToDo();
 
-const { todos, newTask, fetchList, addNewTask, markAsCompleted, removeTodo } =
-  useToDo();
+// Fetch TodoList
+fetchTodoList();
 
 useHead({
   title: "ToDo List App",

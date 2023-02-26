@@ -3,7 +3,6 @@ export default defineNuxtRouteMiddleware(() => {
     if (user.id) {
       return true
     } else {
-      navigateTo("/login");
-      // return false
+      return navigateTo('/login')
     }
 });

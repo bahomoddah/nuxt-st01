@@ -46,7 +46,7 @@
         </button>
       </form>
       <br />
-      <p v-if="msg" class="error">{{ msg }}</p>
+      <p v-if="msg" class="error-msg">{{ msg }}</p>
     </div>
   </div>
 </template>
@@ -118,10 +118,6 @@ form button {
   color: #1f2023;
   margin: auto;
   padding: 10px 60px;
-}
-.error {
-  color: #dc4c64;
-  text-align: center;
 }
 /* Account List */
 .accounts div {

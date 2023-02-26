@@ -14,10 +14,6 @@
 <script setup>
 const auth = useAuth();
 const user = computed(() => auth.value.profile);
-// if (!process.server) {
-//   auth.value.profile = JSON.parse(localStorage.getItem("USER") || "{}")
-//   const user = JSON.parse(localStorage.getItem("USER") || "{}");
-// }
 
 // logout
 const route = useRoute();

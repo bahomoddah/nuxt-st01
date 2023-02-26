@@ -1,17 +1,21 @@
 export const useToDo = () => {
+  const todos = ref([]);
+  const newTask = ref("");
+
+  
+  const auth = useAuth();
+  const profile = computed(() => auth.value.profile);
+
   const url = "http://localhost:4000";
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
     Authorization: "Basic enVja2VyOjEyMzQ1Ng==",
     auth: {
-      username: "felon",
-      password: "123123",
+      username: profile.username,
+      password: profile.password,
     },
   };
-  const todos = ref([]);
-  const newTask = ref("");
-  fetchList();
 
   function addNewTask() {
     if (newTask.value) {
@@ -24,7 +28,7 @@ export const useToDo = () => {
         },
         headers,
       }).then(() => {
-        fetchList();
+        fetchTodoList();
       });
       newTask.value = "";
     }
@@ -35,19 +39,19 @@ export const useToDo = () => {
       baseURL: url,
       headers,
     }).then(() => {
-      fetchList();
+      fetchTodoList();
     });
   }
-  function removeTodo(id) {
+  function deleteTodo(id) {
     $fetch(`/todos/${id}`, {
       method: "DELETE",
       baseURL: url,
       headers,
     }).then(() => {
-      fetchList();
+      fetchTodoList();
     });
   }
-  function fetchList() {
+  function fetchTodoList() {
     $fetch(`/todos`, {
       method: "GET",
       baseURL: url,
@@ -60,10 +64,10 @@ export const useToDo = () => {
   return {
     todos,
     newTask,
-    fetchList,
+    fetchTodoList,
     addNewTask,
     markAsCompleted,
-    removeTodo,
+    deleteTodo,
   };
 };
 export const useAuth = () =>
