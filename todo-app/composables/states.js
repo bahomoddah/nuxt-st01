@@ -4,13 +4,15 @@ export const useToDo = () => {
 
   const url = "http://localhost:4000";
   const profile = JSON.parse(localStorage.getItem("USER") || "{}");
-  const headers = new Headers();
-  headers.set(
-    "Authorization",
-    `Basic ${btoa(`${profile.username}:${profile.password}`)}`
-  );
-  headers.set("Content-Type", "application/json");
-  headers.set("Accept", "application/json");
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    username: profile.username,
+    password: profile.password,
+    // Authorization: "Basic enVja2VyOjEyMzQ1Ng==",
+    // Authorization: "Basic ZmVsb246MTIzMTIz==",
+    Authorization: `Basic ${btoa(`${profile.username}:${profile.password}`)}`
+  };
 
   function addNewTask() {
     if (newTask.value) {
